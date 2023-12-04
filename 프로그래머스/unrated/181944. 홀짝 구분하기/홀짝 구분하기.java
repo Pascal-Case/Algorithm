@@ -5,7 +5,7 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         String result;
-        if(n %2 == 0) {
+        if((n & 0b1) == 0) {
             result = "even";
         } else {
             result = "odd";
