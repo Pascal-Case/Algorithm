@@ -5,7 +5,7 @@ class Solution {
         for (int i = 0; i < alphabet.length; i++) {
             String alpha = alphabet[i];
             if (s.contains(alpha)) {
-                s = s.replace(alpha, Integer.toString(i));
+                s = s.replaceAll(alpha, Integer.toString(i));
             }
 
         }
