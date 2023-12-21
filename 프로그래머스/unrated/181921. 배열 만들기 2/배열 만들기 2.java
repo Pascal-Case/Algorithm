@@ -6,10 +6,7 @@ class Solution {
                 .filter(x -> (Integer.toString(x).startsWith("5")))
                 .filter(x -> (Integer.toString(x).endsWith("5") || Integer.toString(x).endsWith("0")))
                 .filter(x -> {
-                    if (x == 5) {
-                        return true;
-                    }
-
+                   
                     while (x / 10 != 0) {
                         if (Integer.toString(x).endsWith("5") || Integer.toString(x).endsWith("0")) {
                             x /= 10;
