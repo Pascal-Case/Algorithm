@@ -1,14 +1,7 @@
 import java.util.Arrays;
+import java.util.stream.IntStream;
 class Solution {
     public int[] solution(int[] numbers, String direction) {
-        int[] answer = new int[numbers.length];
-        if (direction.equals("right")) {
-            System.arraycopy(numbers, 0, answer, 1, numbers.length - 1);
-            answer[0] = numbers[numbers.length - 1];
-        } else {
-            System.arraycopy(numbers, 1, answer, 0, numbers.length - 1);
-            answer[numbers.length - 1] = numbers[0];
-        }
-        return answer;
+        return IntStream.range(0, numbers.length).map(i -> numbers[(i + (direction.equals("right") ? -1 : 1) + numbers.length) % numbers.length]).toArray();
     }
 }
