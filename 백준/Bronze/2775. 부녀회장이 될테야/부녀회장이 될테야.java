@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,13 +24,9 @@ public class Main {
             dp[0][i] = i;
         }
 
-        for (int i = 1; i <= k; i++) {
+         for (int i = 1; i <= k; i++) {
             for (int j = 1; j <= n; j++) {
-                int sum = 0;
-                for (int l = 1; l <= j; l++) {
-                    sum += dp[i - 1][l];
-                }
-                dp[i][j] = sum;
+                dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
             }
         }
 
