@@ -1,23 +1,17 @@
 class Solution {
-    public int solution(int number, int limit, int power) {
+    public int solution(int n, int limit, int power) {
+        int[] divisorCount = new int[n + 1];
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = i; j <= n; j += i) {
+                divisorCount[j]++;
+            }
+        }
+        
         int answer = 0;
         
-        for(int i = 1; i <= number; i++) {
-            
-            int money = 0;
-            int cnt = 1;
-            for(int j = 1; j <= i / 2; j++) {
-                if(i % j == 0) {
-                    cnt++;
-                }
-                
-                if(cnt > limit) {
-                    money = power;
-                    break;
-                }
-            }
-            
-            answer += money == 0 ? cnt : money;
+        for(int i = 1; i <= n; i++) {
+            answer += divisorCount[i] > limit ? power : divisorCount[i];
         }
         
         return answer;
